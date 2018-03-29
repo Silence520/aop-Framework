@@ -30,6 +30,8 @@ server 应用到 node+koa2 ，gulp做后台打包处理
 > * log4js：日志管理
 > * awilix：非常强大的依赖注入（DI）容器，用TypeScript编写。再次让IoC变得更好！
 > * awilix-koa：Awilix助手，路由器和范围实例化Koa的中间件
+>* cross-env: 设置环境变量
+>* jsdoc :生成API 接口文档
 
 ###### 后台gulp 打包下载的依赖
 > * gulp-rollup：主要在打包📦做 tree-shaking；
@@ -41,13 +43,10 @@ server 应用到 node+koa2 ，gulp做后台打包处理
 > * webpack-merge:合并对象
 > * glop：匹配全局
 > * postcss：css后处理器
+>* extract-text-webpack-plugin 分离css webpack4 需下载 extract-text-webpack-plugin@next
+>* copy-webpack-plugin:拷贝资源插件
 
-//webpack
-//yargs-parser. //解析参数 插件
-//webpack-merge //解析参数 插件
-//glob     手机全局变亮
-//postcss
-//postcss-cssnext
-// npm install extract-text-webpack-plugin@next
-//htmlAfterWebpackPlugin.js 编写插件
-//html-webpack-plugin
+
+
+
+
