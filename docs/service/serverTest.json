@@ -1,0 +1,136 @@
+{
+  "stats": {
+    "suites": 3,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2018-03-22T05:08:29.767Z",
+    "end": "2018-03-22T05:08:29.825Z",
+    "duration": 58,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "passPercentClass": "success",
+    "pendingPercentClass": "danger"
+  },
+  "suites": {
+    "uuid": "cb6dcb1b-7b41-4884-940c-b7c550b8f3e0",
+    "title": "",
+    "fullFile": "",
+    "file": "",
+    "beforeHooks": [],
+    "afterHooks": [],
+    "tests": [],
+    "suites": [
+      {
+        "uuid": "1d0b0d59-e900-4d15-ae05-ce70d84bf18f",
+        "title": "node 自动化测试",
+        "fullFile": "/Users/lihaibo/Desktop/starcode/tests/service/router.spec.js",
+        "file": "/tests/service/router.spec.js",
+        "beforeHooks": [],
+        "afterHooks": [],
+        "tests": [],
+        "suites": [
+          {
+            "uuid": "98316835-0c5d-47ff-8bd6-86650dc622a2",
+            "title": "API 接口测试",
+            "fullFile": "/Users/lihaibo/Desktop/starcode/tests/service/router.spec.js",
+            "file": "/tests/service/router.spec.js",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "获取测试的数据",
+                "fullTitle": "node 自动化测试 API 接口测试 获取测试的数据",
+                "timedOut": false,
+                "duration": 22,
+                "state": "passed",
+                "speed": "fast",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "code": "request()\n.get('/index/json')\n.set('Accept','application/json')\n.expect('Content-Type',/json/)\n.expect(200)\n.end(function(err,response){\n\tif(response.body.data==\"123\"){\n\t\tdone()\n\t}else{\n\t\tdone(new Error('接口测试与期望不符和'))\n\t}\n});",
+                "err": {},
+                "isRoot": false,
+                "uuid": "b99269d1-8534-4c96-8c74-3afae14eec07",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [
+              "b99269d1-8534-4c96-8c74-3afae14eec07"
+            ],
+            "failures": [],
+            "pending": [],
+            "skipped": [],
+            "duration": 22,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 2000
+          },
+          {
+            "uuid": "88eebc80-386f-4627-a13d-4b7d52a5faf2",
+            "title": "node容错处理",
+            "fullFile": "/Users/lihaibo/Desktop/starcode/tests/service/router.spec.js",
+            "file": "/tests/service/router.spec.js",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "获取测试404数据",
+                "fullTitle": "node 自动化测试 node容错处理 获取测试404数据",
+                "timedOut": false,
+                "duration": 9,
+                "state": "passed",
+                "speed": "fast",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "code": "request()\n.get('/index/error')\n.expect(404,done);",
+                "err": {},
+                "isRoot": false,
+                "uuid": "3c5c45e2-a905-4c26-9eed-251f315251fe",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [
+              "3c5c45e2-a905-4c26-9eed-251f315251fe"
+            ],
+            "failures": [],
+            "pending": [],
+            "skipped": [],
+            "duration": 9,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 2000
+          }
+        ],
+        "passes": [],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 0,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 2000
+      }
+    ],
+    "passes": [],
+    "failures": [],
+    "pending": [],
+    "skipped": [],
+    "duration": 0,
+    "root": true,
+    "rootEmpty": true,
+    "_timeout": 2000
+  },
+  "copyrightYear": 2018
+}
