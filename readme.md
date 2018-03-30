@@ -1,8 +1,7 @@
-# BFF架构 简单的小记
+# BFF架构 简单小记
 ------
 本文是学AOP架构过程中，遇到的问题，和一些要注意的地方 ，首先我们要理解一些概念
 
-	
 > * AOP为面向切面编程，在传统的OOP开发过程中，对于一个模块我们分为数据访问层，逻辑层，Action层，jsp视图层，但是在多个模块
 中需要加入日志管理、权限管理等非业务性功能的时候，就会使得代码存在大量的冗余，也不方便管理，这个时间就该使用AOP编程。
 > * IOC 为控制反转，它是一种思想，把类的具体实现交给外部容器，而不是由类直接实例化，通过这个反转，把控制权交给了外部容器，
@@ -41,7 +40,7 @@ server 应用到 node+koa2 ，gulp做后台打包处理
 > * babel-plugin-transform-decorators-legacy:修饰器（Decorator）是一个函数，用来修改类的行为。这是ES7的一个提案，目前Babel转码器已经支持
 > * yargs-parser: 解析参数 插件
 > * webpack-merge:合并对象
-> * glop：匹配全局
+> * glop：匹配全局指定的文件 可以支持正则
 > * postcss：css后处理器
 >* extract-text-webpack-plugin 分离css webpack4 需下载 extract-text-webpack-plugin@next
 >* copy-webpack-plugin:拷贝资源插件
