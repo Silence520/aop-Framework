@@ -4,7 +4,6 @@
 *@version 1.0
 */
 class UserService{
-
 	/**
 	*IndexModel  类，生成一段异步数据
 	*@class 

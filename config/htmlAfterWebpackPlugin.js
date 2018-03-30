@@ -1,5 +1,5 @@
 const pluginName = 'htmlAfterWebpackPlugin';
- const assetsHelp=(data)=>{
+const assetsHelp=(data)=>{
  	let css=[],js=[];
  	const dir={
  		js:item=>`<script src="${item}"></script>`,
@@ -15,26 +15,21 @@ const pluginName = 'htmlAfterWebpackPlugin';
  		js,
  		css
  	}
- }
-
-
-
+}
 
 class htmlAfterWebpackPlugin {
     apply(compiler) {
         compiler.hooks.compilation.tap(pluginName, compilation => {
-            console.log("The webpack build process is starting!!!");
-
-            compilation.hooks.htmlWebpackPluginBeforeHtmlProcessing.tap(pluginName,htmlPluginData=>{
-                let _html = htmlPluginData.html;
-                const result = assetsHelp(htmlPluginData.assets);
-                console.log(result)
-                _html = _html.replace("<!--injectcss-->",result.css);
-                _html = _html.replace("<!--injectjs-->",result.js);
-                // console.log('得到的值',_html);
-                htmlPluginData.html = _html;
-            })
-
+                        console.log("The webpack build process is starting!!!");
+                        compilation.hooks.htmlWebpackPluginBeforeHtmlProcessing.tap(pluginName,htmlPluginData=>{
+                                    let _html = htmlPluginData.html;
+                                    const result = assetsHelp(htmlPluginData.assets);
+                                    console.log(result)
+                                    _html = _html.replace("<!--injectcss-->",result.css);
+                                    _html = _html.replace("<!--injectjs-->",result.js);
+                                    // console.log('得到的值',_html);
+                                    htmlPluginData.html = _html;
+                        })
         });
     }
 }
