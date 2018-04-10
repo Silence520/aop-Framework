@@ -9,6 +9,10 @@ const _mergeConfig=require(`./config/webpack.${argv.mode}.js`);
 const glob=require('glob');
 //同步获取需要的js
 const files=glob.sync('./src/webapp/views/**/*.entry.js');
+// html  copy
+const fileshtml=glob.sync('./src/webapp/widgets/**/*.html');
+console.log('success')
+console.log(fileshtml)
 const {join, basename}=require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 //copy代码
@@ -16,12 +20,26 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 // console.log(files)
  let _entry={};
-
+var _entryhyml=[];
  //循环处理得到需要的文件格式
  for(let item of files){
  	item.replace(/.+\/([a-zA-Z]+-[a-zA-Z]+)(\.entry\.js$)/g, (mactch, $1) => { _entry[$1] = item });
  }
-console.log(_entry)
+
+  for(let item of fileshtml){
+      // { from: 'src/webapp/widgets/pagefooter/pagefooter.html', to: '../widgets/pagefooter/pagefooter.html' }
+      var obj={
+         from: item,
+         to: item.replace('./src/webapp','..'),
+      }
+      _entryhyml.push(obj)
+  }
+
+
+
+
+
+// console.log(_entry)
 let webpackConfig={
 	entry:_entry,
 	module:{
@@ -41,11 +59,7 @@ let webpackConfig={
 		publicPath:'/',
 	},
 	plugins:[
-		new CopyWebpackPlugin([
-		 { from: 'src/webapp/views/common/layout.html', to: '../views/common/layout.html' },
-		 { from: 'src/webapp/widgets/pagefooter/pagefooter.html', to: '../widgets/pagefooter/pagefooter.html' },
-		 { from: 'src/webapp/widgets/topbanner/topbanner.html', to: '../widgets/topbanner/topbanner.html' }
-		 ]),
+		new CopyWebpackPlugin(_entryhyml),
 		new HtmlWebpackPlugin({
       			filename: '../views/hello/pages/index.html',
       			template: 'src/webapp/views/hello/pages/index.html',

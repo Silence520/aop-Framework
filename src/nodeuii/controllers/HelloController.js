@@ -6,7 +6,7 @@ export default class helloAPI {
 	constructor({ testService }) {
 		this.testService = testService
 	}
-	 
+	
 	@GET()
 	async getUser(ctx) {
 	    	const result=this.testService.find();
