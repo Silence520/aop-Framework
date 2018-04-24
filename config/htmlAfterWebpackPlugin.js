@@ -1,15 +1,16 @@
 const pluginName = 'htmlAfterWebpackPlugin';
 const assetsHelp=(data)=>{
- 	let css=[],js=[];
+ 	let css='',js='';
  	const dir={
  		js:item=>`<script src="${item}"></script>`,
  		css:item=>`<link rel="stylesheet" href="${item}" />`
  	};
  	for(let jsitem of data.js){
- 		js.push(dir.js(jsitem))
+ 		// js.push(dir.js(jsitem))
+                            js+=dir.js(jsitem);
  	}
  	for(let cssitem of data.css){
- 		css.push(dir.css(cssitem))
+ 		css+=dir.css(cssitem);
  	}
  	return {
  		js,

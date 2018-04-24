@@ -1,6 +1,6 @@
 {% extends '../../../widgets/common/layout.html' %}
-{% block head %}
 {% block title %} login new  {% endblock %}
+{% block head %}
 <!--injectcss-->
 {% endblock  %}
 {% block content %} 
@@ -10,7 +10,8 @@
 	<p> login</p>
 	{{data}}
 	{% include '../../../widgets/pagefooter/pagefooter.html' %}
- 	{%  block scripts  %}
+ 	
+ {% endblock %}
+ {%  block scripts  %}
 		<!--injectjs-->
- 	{% endblock %}
  {% endblock %}

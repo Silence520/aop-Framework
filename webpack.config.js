@@ -11,11 +11,11 @@ const glob=require('glob');
 const files=glob.sync('./src/webapp/views/**/*.entry.js');
 // html  copy
 const fileshtml=glob.sync('./src/webapp/widgets/**/*.html');
-console.log('success')
-console.log(fileshtml)
+//html page
+const pagehtml=glob.sync('./src/webapp/views/**/*.html');
 const {join, basename}=require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-//copy代码
+//copy html
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 // console.log(files)
@@ -26,18 +26,22 @@ var _entryhyml=[];
  	item.replace(/.+\/([a-zA-Z]+-[a-zA-Z]+)(\.entry\.js$)/g, (mactch, $1) => { _entry[$1] = item });
  }
 
-  for(let item of fileshtml){
-      // { from: 'src/webapp/widgets/pagefooter/pagefooter.html', to: '../widgets/pagefooter/pagefooter.html' }
+var _pagehyml = pagehtml.map((page) => {
+		return new HtmlWebpackPlugin({
+      			filename: page.replace('./src/webapp','..'),
+      			template: page,
+      			inject:false,
+    		});
+	});
+
+//模板copy
+ for(let item of fileshtml){
       var obj={
          from: item,
          to: item.replace('./src/webapp','..'),
       }
       _entryhyml.push(obj)
   }
-
-
-
-
 
 // console.log(_entry)
 let webpackConfig={
@@ -60,16 +64,7 @@ let webpackConfig={
 	},
 	plugins:[
 		new CopyWebpackPlugin(_entryhyml),
-		new HtmlWebpackPlugin({
-      			filename: '../views/hello/pages/index.html',
-      			template: 'src/webapp/views/hello/pages/index.html',
-      			inject:false
-    		}),
-		new HtmlWebpackPlugin({
-      			filename: '../views/users/pages/index.html',
-      			template: 'src/webapp/views/users/pages/index.html',
-      			inject:false
-    		}),
+		..._pagehyml,
 		new htmlAfterWebpackPlugin()
 
 	]
